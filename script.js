@@ -24,7 +24,7 @@ let processCards = {
                         new ProcessingCards (5, 'Reporting and Communication', 'Lorem ipsum dolor sit amet consecte.'),
     ],              
     consultation6 : [
-                        new ProcessingCards (5, 'Continual Improvement', 'Lorem ipsum dolor sit amet consecte.'),
+                        new ProcessingCards (6, 'Continual Improvement', 'Lorem ipsum dolor sit amet consecte.'),
     ]              
 };
 
