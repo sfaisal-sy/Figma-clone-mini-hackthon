@@ -12,16 +12,19 @@ let processCards = {
                         new ProcessingCards ( 1, 'Consultaing', 'Lorem ipsum dolor sit amet consecte.')              
                     ],
     consultation2 : [
-                        new ProcessingCards (2, 'Heading 2', 'Lorem ipsum dolor sit amet consecte.'),
+                        new ProcessingCards (2, 'Research and Strategy Development', 'Lorem ipsum dolor sit amet consecte.'),
     ],              
     consultation3 : [
-                        new ProcessingCards (3, 'Heading 3', 'Lorem ipsum dolor sit amet consecte.'),
+                        new ProcessingCards (3, 'Implementation', 'Lorem ipsum dolor sit amet consecte.'),
     ],              
     consultation4 : [
-                        new ProcessingCards (4, 'Heading 4', 'Lorem ipsum dolor sit amet consecte.'),
+                        new ProcessingCards (4, 'Monitoring and Optimization', 'Lorem ipsum dolor sit amet consecte.'),
     ],              
     consultation5 : [
-                        new ProcessingCards (5, 'Heading 5', 'Lorem ipsum dolor sit amet consecte.'),
+                        new ProcessingCards (5, 'Reporting and Communication', 'Lorem ipsum dolor sit amet consecte.'),
+    ],              
+    consultation6 : [
+                        new ProcessingCards (5, 'Continual Improvement', 'Lorem ipsum dolor sit amet consecte.'),
     ]              
 };
 
