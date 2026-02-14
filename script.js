@@ -1,115 +1,73 @@
-/*
 
-
-    <seection class="working-process" id="working-process">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="process border">
-                        <h1>01 </h1>
-                        <h6 class="consultation">Consultation</h6>
-                        <button class=" btn custom-btn border rounded-5  ">+</button>
-                    </div>
-                </div>
-            </div>
-            <hr>
-        </div>
-    </seection>
-
-
-*/
-
-let processingCard = document.getElementById('working-process');
-
-class Process {
-    constructor (index, heading, moreDetails) {
+class ProcessingCards {
+    constructor (index, heading, details) {
         this.index = index;
         this.heading = heading;
-        this.moreDetails = moreDetails;
+        this.details = details;
     };
 };
 
-
-
-let wrokPrecess = {
-    consultation1 : [
-                new Process ( 1, 'Consultation', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ],
+let processCards = {
+    consultation  : [
+                        new ProcessingCards ( 1, 'Consultaing', 'Lorem ipsum dolor sit amet consecte.')              
+                    ],
     consultation2 : [
-                new Process ( 2, 'Research and Strategy Development', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ],
+                        new ProcessingCards (2, 'Heading 2', 'Lorem ipsum dolor sit amet consecte.'),
+    ],              
     consultation3 : [
-                new Process ( 3, 'Implementation', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ],
+                        new ProcessingCards (3, 'Heading 3', 'Lorem ipsum dolor sit amet consecte.'),
+    ],              
     consultation4 : [
-                new Process ( 4, 'Monitoring and Optimization', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ],
+                        new ProcessingCards (4, 'Heading 4', 'Lorem ipsum dolor sit amet consecte.'),
+    ],              
     consultation5 : [
-                new Process ( 5, 'Reporting and Communication', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ],
-    consultation6 : [
-                new Process ( 6, 'Continual Improvement', 'During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.'),
-    ]
+                        new ProcessingCards (5, 'Heading 5', 'Lorem ipsum dolor sit amet consecte.'),
+    ]              
 };
 
-// workProcessCard();
+let newCard = document.getElementById('cards');
 
 
-for (let keys of Object.values(wrokPrecess)) {
-    // console.log(keys);
-    for(let value of keys){
-
-        let  {index, heading, details, moreDetails} = value;        
-                
-            let card = ` 
-                        
-                        <div class="container  border rounded-5 mb-3 colorclasss">
-                            <div class="row parent">
-                                <div class="col">
-                                    <div class="process">
-                                        <h2> ${index}</h2>
-                                        <h4> ${heading} </h4>
-                                        <button class="btn detailsbtn border rounded-5">+</button>
-                                    </div>
-                        <hr>
-                                    <div class="row ">
-                                        <div class="col moreinfo ">
-                                        <p>${moreDetails} </p>
-                                    </div>
+for (let keys of Object.values(processCards)){
+    for (let values of keys) {
+        let {index, heading, details} = values;        
+        let card = `
+                    <div class="container border rounded-5 mb-3 parentdiv" >                    
+                        <div class="row btnparent ">
+                                 <div class="col custom-card  " >
+                                    <h3>${index}</h3>
+                                    <h3>${heading}</h3>
+                                    <button class="btn border detailsbtn rounded-5" type="button">+</button>
+                                    
                                 </div>
-                            </div>
-                        </div>
+                        <hr>
+                    
+                            <div class="row mt-2">
+                                <div class="col custom-col details ">
+                                    <p>${details} </p>
+                                </div>
+                            </div> 
+                        </div>                   
                     </div>
-                            
-            `;
-            processingCard.innerHTML += card;
-                            
-                            
-                            
-};                    
+        `;
+        newCard.innerHTML += card
+
+    };
 };
 
-let detailsBtn = document.querySelectorAll('.detailsbtn');
+let allbtn = document.querySelectorAll('.detailsbtn');
 
-detailsBtn.forEach(function(btn) {
+allbtn.forEach(function(btn) {
+    btn.addEventListener('click', () => {
+       let parentbtn = btn.closest('.btnparent');
+       let moreDetails = parentbtn.querySelector('.details');
 
-    btn.addEventListener('click', function() {
-
-        let parent = btn.closest('.parent'); 
-        let moreInfo = parent.querySelector('.moreinfo');
-
-        // Get the main container of this card
-        let cardContainer = parent.closest('.container');
-
-        // Toggle animation
-        moreInfo.classList.toggle('show');
-
-        // Toggle card background
-        cardContainer.classList.toggle('process-card-active');
-
-        // Toggle button text
-        btn.textContent = moreInfo.classList.contains('show') ? '-' : '+';
-
-    });
-
-});
+       let cardContainer = parentbtn.closest('.container');
+      
+       moreDetails.classList.toggle('show')
+      cardContainer.classList.toggle('container-card-active')
+       
+       btn.textContent = moreDetails.classList.contains ('show')? '-' : '+';
+       
+    })
+})
